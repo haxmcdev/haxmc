@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>HaxMC's Planet</title>
+</head>
+<body>
+    <div class="overlay" id="overlay">Click anywhere to enter</div>
+    
+    <div class="main" style="display: none;"></div>
+    <div class="container" style="display: none;">
+        <h1>HaxMC's Planet</h1>
+        <p>Welcome to my universe. Check out my links below!</p>
+        <div class="links-container">
+            <a href="redir/github/index.html" class="link" target="_blank">GitHub</a>
+            <a href="projects/index.html" class="link" target="_blank">My Projects (soon)</a>
+            <a href="redir/boxcores/index.html" class="link" target="_blank">Minecraft Skripts</a>
+            <a href="wog/index.html" class="link" target="_blank">My fans!</a>
+            <a href="hacks/index.html" class="link" target="_blank">Minecraft Hacks (Recommended)</a>
+            <a href="redir/grim/index.html" class="link" target="_blank">Grim Client Crack (1.20.1)</a>
+        </div><br>
+        <img src="https://discord.c99.nl/widget/theme-2/1137060569359319083.png" alt="Discord" class="discord">
+        <audio id="background-music">
+            <source id="audio-source" src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
+    <script>
+        document.getElementById("overlay").addEventListener("click", function() {
+            this.style.display = "none";
+            document.querySelector(".main").style.display = "block";
+            document.querySelector(".container").style.display = "block";
+    
+            const musicFolder = "music/";
+            const songs = ["a1.mp3", "a2.mp3", "a3.mp3", "a4.mp3"];
+            const randomSong = songs[Math.floor(Math.random() * songs.length)];
+            
+            const audioElement = document.getElementById("background-music");
+            const sourceElement = document.getElementById("audio-source");
+            
+            sourceElement.src = musicFolder + randomSong;
+            audioElement.load();
+    
+            // Set volume (range: 0.0 to 1.0)
+            audioElement.volume = 0.12; // Adjust this value (e.g., 0.1 for quieter, 0.5 for louder)
+    
+            audioElement.play().catch(error => console.log("Autoplay blocked: User interaction needed"));
+        });
+    </script>
+</body>
+</html>
